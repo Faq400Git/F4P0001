@@ -1,0 +1,193 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header>
+      <platformMsgs:documentInfo xmlns:platformMsgs="urn:messages_2018_1.platform.webservices.netsuite.com">
+         <platformMsgs:nsId>WEBSERVICES_xxx</platformMsgs:nsId>
+      </platformMsgs:documentInfo>
+   </soapenv:Header>
+   <soapenv:Body>
+      <searchResponse xmlns="urn:core_2018_1.platform.webservices.netsuite.com">
+         <searchResult>
+            <status isSuccess="true"/>
+            <totalRecords>1</totalRecords>
+            <pageSize>1000</pageSize>
+            <totalPages>1</totalPages>
+            <pageIndex>1</pageIndex>
+            <searchId>WEBSERVICES_xxx</searchId>
+            <searchRowList>
+               <searchRow xsi:type="listAcct:ItemSearchRow" xmlns:listAcct="urn:accounting_2018_1.lists.webservices.netsuite.com">
+                  <listAcct:basic xmlns:platformCommon="urn:common_2018_1.platform.webservices.netsuite.com">
+                     <platformCommon:displayName>
+                        <searchValue>Item AAA</searchValue>
+                     </platformCommon:displayName>
+                     <platformCommon:internalId>
+                        <searchValue internalId="161"/>
+                     </platformCommon:internalId>
+                     <platformCommon:itemId>
+                        <searchValue>XXX51113</searchValue>
+                     </platformCommon:itemId>
+                     <platformCommon:saleUnit>
+                        <searchValue internalId="4"/>
+                     </platformCommon:saleUnit>
+                     <platformCommon:type>
+                        <searchValue>_nonInventoryItem</searchValue>
+                     </platformCommon:type>
+                     <platformCommon:weight>
+                        <searchValue>0.0</searchValue>
+                     </platformCommon:weight>
+                     <platformCommon:customFieldList>
+                        <customField internalId="2595" scriptId="custitem_dlt_qct_pack_quantity" xsi:type="ns1:SearchColumnLongCustomField" xmlns:ns1="urn:core_2018_1.platform.webservices.netsuite.com">
+                           <ns1:searchValue>12</ns1:searchValue>
+                        </customField>
+                     </platformCommon:customFieldList>
+                  </listAcct:basic>
+                  <listAcct:customSearchJoin xmlns:platformCommon="urn:common_2018_1.platform.webservices.netsuite.com">
+                     <platformCommon:customizationRef scriptId="custitem_cseg_dlt_qct_neg_cl" internalId="2575"/>
+                     <platformCommon:searchRowBasic xsi:type="platformCommon:CustomRecordSearchRowBasic">
+                        <platformCommon:recType internalId="296"/>
+                        <platformCommon:name>
+                           <searchValue>Item AAA long description</searchValue>
+                           <customLabel>Item Classification</customLabel>
+                        </platformCommon:name>
+                     </platformCommon:searchRowBasic>
+                  </listAcct:customSearchJoin>
+                  <listAcct:customSearchJoin xmlns:platformCommon="urn:common_2018_1.platform.webservices.netsuite.com">
+                     <platformCommon:customizationRef scriptId="custitem_dlt_qct_neg_package_item" internalId="2593"/>
+                     <platformCommon:searchRowBasic xsi:type="platformCommon:CustomRecordSearchRowBasic">
+                        <platformCommon:recType internalId="305"/>
+                        <platformCommon:name>
+                           <searchValue>XXX5011300012</searchValue>
+                           <customLabel>Item Packaging</customLabel>
+                        </platformCommon:name>
+                     </platformCommon:searchRowBasic>
+                  </listAcct:customSearchJoin>
+                  <listAcct:customSearchJoin xmlns:platformCommon="urn:common_2018_1.platform.webservices.netsuite.com">
+                     <platformCommon:customizationRef scriptId="custitem_dlt_qct_neg_bar_code" internalId="2598"/>
+                     <platformCommon:searchRowBasic xsi:type="platformCommon:CustomRecordSearchRowBasic">
+                        <platformCommon:recType internalId="306"/>
+                        <platformCommon:name>
+                           <searchValue>1234567890123</searchValue>
+                           <customLabel>Barcode</customLabel>
+                        </platformCommon:name>
+                     </platformCommon:searchRowBasic>
+                  </listAcct:customSearchJoin>
+               </searchRow>
+               
+   <searchRow xsi:type="listAcct:ItemSearchRow" xmlns:listAcct="urn:accounting_2018_1.lists.webservices.netsuite.com">
+                  <listAcct:basic xmlns:platformCommon="urn:common_2018_1.platform.webservices.netsuite.com">
+                     <platformCommon:displayName>
+                        <searchValue>Item BBB</searchValue>
+                     </platformCommon:displayName>
+                     <platformCommon:internalId>
+                        <searchValue internalId="161"/>
+                     </platformCommon:internalId>
+                     <platformCommon:itemId>
+                        <searchValue>XXX51114</searchValue>
+                     </platformCommon:itemId>
+                     <platformCommon:saleUnit>
+                        <searchValue internalId="4"/>
+                     </platformCommon:saleUnit>
+                     <platformCommon:type>
+                        <searchValue>_nonInventoryItem</searchValue>
+                     </platformCommon:type>
+                     <platformCommon:weight>
+                        <searchValue>0.0</searchValue>
+                     </platformCommon:weight>
+                     <platformCommon:customFieldList>
+                        <customField internalId="2595" scriptId="custitem_dlt_qct_pack_quantity" xsi:type="ns1:SearchColumnLongCustomField" xmlns:ns1="urn:core_2018_1.platform.webservices.netsuite.com">
+                           <ns1:searchValue>12</ns1:searchValue>
+                        </customField>
+                     </platformCommon:customFieldList>
+                  </listAcct:basic>
+                  <listAcct:customSearchJoin xmlns:platformCommon="urn:common_2018_1.platform.webservices.netsuite.com">
+                     <platformCommon:customizationRef scriptId="custitem_cseg_dlt_qct_neg_cl" internalId="2575"/>
+                     <platformCommon:searchRowBasic xsi:type="platformCommon:CustomRecordSearchRowBasic">
+                        <platformCommon:recType internalId="296"/>
+                        <platformCommon:name>
+                           <searchValue>Item BBB long description</searchValue>
+                           <customLabel>Item Classification</customLabel>
+                        </platformCommon:name>
+                     </platformCommon:searchRowBasic>
+                  </listAcct:customSearchJoin>
+                  <listAcct:customSearchJoin xmlns:platformCommon="urn:common_2018_1.platform.webservices.netsuite.com">
+                     <platformCommon:customizationRef scriptId="custitem_dlt_qct_neg_package_item" internalId="2593"/>
+                     <platformCommon:searchRowBasic xsi:type="platformCommon:CustomRecordSearchRowBasic">
+                        <platformCommon:recType internalId="306"/>
+                        <platformCommon:name>
+                           <searchValue>XXX5011300013</searchValue>
+                           <customLabel>Item Packaging</customLabel>
+                        </platformCommon:name>
+                     </platformCommon:searchRowBasic>
+                  </listAcct:customSearchJoin>
+                  <listAcct:customSearchJoin xmlns:platformCommon="urn:common_2018_1.platform.webservices.netsuite.com">
+                     <platformCommon:customizationRef scriptId="custitem_dlt_qct_neg_bar_code" internalId="2598"/>
+                     <platformCommon:searchRowBasic xsi:type="platformCommon:CustomRecordSearchRowBasic">
+                        <platformCommon:recType internalId="306"/>
+                        <platformCommon:name>
+                           <searchValue>1234567890124</searchValue>
+                           <customLabel>Barcode</customLabel>
+                        </platformCommon:name>
+                     </platformCommon:searchRowBasic>
+                  </listAcct:customSearchJoin>
+               </searchRow>     
+<searchRow xsi:type="listAcct:ItemSearchRow" xmlns:listAcct="urn:accounting_2018_1.lists.webservices.netsuite.com">
+                  <listAcct:basic xmlns:platformCommon="urn:common_2018_1.platform.webservices.netsuite.com">
+                     <platformCommon:displayName>
+                        <searchValue>Item CCC</searchValue>
+                     </platformCommon:displayName>
+                     <platformCommon:internalId>
+                        <searchValue internalId="161"/>
+                     </platformCommon:internalId>
+                     <platformCommon:itemId>
+                        <searchValue>XXX51114</searchValue>
+                     </platformCommon:itemId>
+                     <platformCommon:saleUnit>
+                        <searchValue internalId="4"/>
+                     </platformCommon:saleUnit>
+                     <platformCommon:type>
+                        <searchValue>_nonInventoryItem</searchValue>
+                     </platformCommon:type>
+                     <platformCommon:weight>
+                        <searchValue>0.0</searchValue>
+                     </platformCommon:weight>
+                     <platformCommon:customFieldList>
+                        <customField internalId="2595" scriptId="custitem_dlt_qct_pack_quantity" xsi:type="ns1:SearchColumnLongCustomField" xmlns:ns1="urn:core_2018_1.platform.webservices.netsuite.com">
+                           <ns1:searchValue>12</ns1:searchValue>
+                        </customField>
+                     </platformCommon:customFieldList>
+                  </listAcct:basic>
+                  <listAcct:customSearchJoin xmlns:platformCommon="urn:common_2018_1.platform.webservices.netsuite.com">
+                     <platformCommon:customizationRef scriptId="custitem_cseg_dlt_qct_neg_cl" internalId="2575"/>
+                     <platformCommon:searchRowBasic xsi:type="platformCommon:CustomRecordSearchRowBasic">
+                        <platformCommon:recType internalId="297"/>
+                        <platformCommon:name>
+                           <searchValue>Item CCC long description</searchValue>
+                           <customLabel>Item Classification</customLabel>
+                        </platformCommon:name>
+                     </platformCommon:searchRowBasic>
+                  </listAcct:customSearchJoin>
+                  <listAcct:customSearchJoin xmlns:platformCommon="urn:common_2018_1.platform.webservices.netsuite.com">
+                     <platformCommon:customizationRef scriptId="custitem_dlt_qct_neg_package_item" internalId="2593"/>
+                     <platformCommon:searchRowBasic xsi:type="platformCommon:CustomRecordSearchRowBasic">
+                        <platformCommon:recType internalId="305"/>
+                        <platformCommon:name>
+                           <searchValue>XXX5011300013</searchValue>
+                           <customLabel>Item Packaging</customLabel>
+                        </platformCommon:name>
+                     </platformCommon:searchRowBasic>
+                  </listAcct:customSearchJoin>
+                  <listAcct:customSearchJoin xmlns:platformCommon="urn:common_2018_1.platform.webservices.netsuite.com">
+                     <platformCommon:customizationRef scriptId="custitem_dlt_qct_neg_bar_code" internalId="2598"/>
+                     <platformCommon:searchRowBasic xsi:type="platformCommon:CustomRecordSearchRowBasic">
+                        <platformCommon:recType internalId="306"/>
+                        <platformCommon:name>
+                           <searchValue>1234567890125</searchValue>
+                           <customLabel>Barcode</customLabel>
+                        </platformCommon:name>
+                     </platformCommon:searchRowBasic>
+                  </listAcct:customSearchJoin>
+               </searchRow>			   
+            </searchRowList>
+         </searchResult>
+      </searchResponse>
+   </soapenv:Body>
+</soapenv:Envelope>
