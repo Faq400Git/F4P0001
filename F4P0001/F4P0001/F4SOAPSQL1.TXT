@@ -1,0 +1,120 @@
+CREATE or replace function faq400.converttemp (
+ i_fahrenheit CHAR(10))
+ RETURNS varchar(50)
+ LANGUAGE SQL
+ BEGIN
+
+ DECLARE v_header varchar (1000);
+ DECLARE v_body varchar (1000);
+ DECLARE v_url varchar (1000);
+
+
+ declare v_data varchar (1000);
+ DECLARE v_result varchar (50);
+
+
+ -- Set default Envelope-Body
+ SET v_body =
+ '<soapenv:Envelope
+ xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:con="http://converttemp.wsbeans.iseries/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <con:converttemp>
+         <arg0>
+            <TEMPIN>$$$TEMPIN</TEMPIN>
+         </arg0>
+      </con:converttemp>
+   </soapenv:Body>
+</soapenv:Envelope>';
+
+-- Replace the input variable in the body
+set v_body=replace(v_body, '$$$TEMPIN', i_fahrenheit);
+
+
+SET v_header =
+ '<httpHeader>
+ <header name ="content-type" value ="application/xml"/>
+ </httpHeader>';
+
+
+SET v_url =
+ 'http://172.17.238.46:10010/web/services/ConvertTempService/ConvertTemp';
+
+
+select a. * into v_result
+FROM
+XMLTABLE (
+xmlnamespaces ('http://schemas.xmlsoap.org/soap/envelope/' AS "soap",
+                'http://converttemp.wsbeans.iseries/' as "ns2"),
+'$ doc/soap:Envelope/soap:Body/*:converttempResponse/return'
+PASSING
+xmlparse (document SYSTOOLS.HTTPPOSTCLOB(v_url, v_header, v_body))
+as "doc"
+columns
+TEMPOUT varchar (50) path 'TEMPOUT'
+) as a;
+ return v_result;
+
+END;
+
+
+--- Testing our UDF
+select faq400.converttemp('42')
+ from sysibm.sysdummy1;
+
+
+--- Direct test
+select a.*
+FROM
+XMLTABLE (
+xmlnamespaces ('http://schemas.xmlsoap.org/soap/envelope/'
+  AS "soap", 'http://converttemp.wsbeans.iseries/' as "ns2"),
+'$ doc/soap:Envelope/soap:Body/*:converttempResponse/return'
+PASSING
+xmlparse (document SYSTOOLS.HTTPPOSTCLOB(
+'http://172.17.238.46:10010/web/services/ConvertTempService/ConvertTemp',
+'<httpHeader>
+<header name="content-type" value="application/xml"/>
+</httpHeader>',
+'<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:con="http://converttemp.wsbeans.iseries/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <con:converttemp>
+         <arg0>
+            <TEMPIN>80</TEMPIN>
+         </arg0>
+      </con:converttemp>
+   </soapenv:Body>
+</soapenv:Envelope>
+'))
+as "doc"
+columns
+TEMPOUT varchar (50) path 'TEMPOUT'
+) as a;
+ return v_result;
+
+--
+select * from table(
+SYSTOOLS.HTTPPOSTCLOBVERBOSE(
+'http://172.17.238.46:10010/web/services/ConvertTempService/ConvertTemp',
+'<httpHeader>
+<header name="content-type" value="application/xml"/>
+</httpHeader>',
+'<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:con="http://converttemp.wsbeans.iseries/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <con:converttemp>
+         <arg0>
+            <TEMPIN>80</TEMPIN>
+         </arg0>
+      </con:converttemp>
+   </soapenv:Body>
+</soapenv:Envelope>
+') );
+
+

@@ -1,5 +1,5 @@
        //-----------------------------------------
-       // F4XML01: SQLRPGLE Source
+       // F4XMLPARS1 SQLRPGLE Source
        //   We are trying to parse and XML stored
        //   in our IFS, and extract data from
        //   different levels and  different namespaces
